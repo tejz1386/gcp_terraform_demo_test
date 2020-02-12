@@ -9,8 +9,6 @@ output "csv_input_filename" {
 }
 
 locals {
-  env = "${terraform.workspace}"
-
   env_type = {
     default = "default"
     development   = "development"
