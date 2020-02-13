@@ -9,11 +9,6 @@ module "csv_output" {
   source = "../csv_output"
   csv_input_file_name = module.shared_vars.csv_input_filename
 }
-locals {
-  env = "${terraform.workspace}"
-}
-
-
 resource "google_compute_address" "internal_with_subnet_and_address" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
     name         = "${each.value.server_name}-dataip"
@@ -28,15 +23,13 @@ resource "google_compute_instance" "instancecreationcsv" {
   name          = each.value.server_name
   machine_type  = each.value.machine_type
   zone          = each.value.zone
-
   tags = ["foo", "bar"]
-
+  allow_stopping_for_update = true
   boot_disk {
     initialize_params {
       image = each.value.instance_type
     }
   }
-
   network_interface {
     subnetwork = module.shared_vars.subnetname
     network_ip = each.value.ipaddr
@@ -50,7 +43,6 @@ resource "google_compute_instance" "instancecreationcsv" {
   metadata = {
     foo = "bar"
   }
-
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
