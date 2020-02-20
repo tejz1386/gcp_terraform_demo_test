@@ -1,6 +1,6 @@
-module "shared_vars"{
-  source = "./modules/shared_vars"
-}
+# module "shared_vars"{
+#   source = "./modules/shared_vars"
+# }
 # module "csv_output" {
 #   source = "./modules/csv_output"
 #   csv_input_file_name = module.shared_vars.csv_input_filename
