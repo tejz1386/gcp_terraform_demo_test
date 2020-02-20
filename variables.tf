@@ -11,7 +11,7 @@ default = {
 }
   }
 
-  env  = "${lookup(local.env_type, "development")}"
+  env  = "${lookup(var.env_type, "development")}"
 variable "subnetname_env" {
     type = map
 default = {
@@ -20,7 +20,7 @@ default = {
     production    = "subnet-production"
 }
   }
-  subnetname = "${lookup(local.subnetname_env, local.env)}"
+  subnetname = "${lookup(var.subnetname_env, var.env)}"
 variable "csv_input_filename_env" {
     type = map
 default = {
@@ -29,4 +29,4 @@ default = {
     production    = "./production/gcp_server_input.csv"
     }
   }
-  csv_input_filename = "${lookup(local.csv_input_filename_env, local.env)}"
+  csv_input_filename = "${lookup(var.csv_input_filename_env, var.env)}"
