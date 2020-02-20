@@ -2,21 +2,21 @@ variable "credentials" {}
 variable "env" {} 
 variable "subnetname" {}
 variable "csv_input_filename" {}
-variable  env_type {
+env_type {
     default       = "development"
     development   = "development"
     staging       = "staging"
     production    = "production"
   }
   env  = "${lookup(local.env_type, "development")}"
-variable  "subnetname_env" {
+subnetname_env {
     default       = "subnet-development"
     development   = "subnet-development"
     staging       = "subnet-staging"
     production    = "subnet-production"
   }
   subnetname = "${lookup(local.subnetname_env, local.env)}"
-variable  "csv_input_filename_env" {
+csv_input_filename_env {
     default       = "./development/gcp_server_input.csv"
     development   = "./development/gcp_server_input.csv"
     staging       = "./staging/gcp_server_input.csv"
