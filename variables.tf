@@ -1,7 +1,4 @@
 variable "credentials" {}
-variable "env" {} 
-variable "subnetname" {}
-variable "csv_input_filename" {}
 variable "env_type" {
     type = map
 default = {
