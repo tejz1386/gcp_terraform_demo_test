@@ -17,7 +17,7 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
 resource "google_compute_instance" "instancecreationcsv" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
   name          = each.value.server_name
-  machine_type  = "${lookup(each.value.machine_type, "${var.instance_type_size}")}"
+  machine_type  = "${lookup(each.value.machine_type, "${var.machine_type_size}")}"
   zone          = each.value.zone
   tags = ["foo", "bar"]
   allow_stopping_for_update = true
