@@ -1,10 +1,6 @@
 locals {
   instances = "${csvdecode(file(var.csv_input_file_name))}"
 }
-module "shared_vars"{
-  source = "../shared_vars"
-}
-
 module "csv_output" {
   source = "../csv_output"
   csv_input_file_name = "${var.csv_input_file_name}"
