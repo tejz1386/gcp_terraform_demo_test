@@ -23,7 +23,8 @@ resource "google_compute_instance" "instancecreationcsv" {
   allow_stopping_for_update = true
   boot_disk {
     initialize_params {
-      image = "${lookup(each.value.instance_type, "${var.instance_type_size}")}"
+      image = each.value.instance_type
+      # image = "${lookup(each.value.instance_type, "${var.instance_type_size}")}"
     }
   }
   network_interface {
