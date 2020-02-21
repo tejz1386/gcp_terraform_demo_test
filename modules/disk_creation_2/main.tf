@@ -1,4 +1,3 @@
-variable csv_input_file_name {}
 locals {
   instances = "${csvdecode(file(var.csv_input_file_name))}"
 }
@@ -8,12 +7,8 @@ module "shared_vars"{
 
 module "csv_output" {
   source = "../csv_output"
-  csv_input_file_name = module.shared_vars.csv_input_filename
+  csv_input_file_name = "${var.csv_input_filename}"
 }
-
-variable server_size {}
-variable disk_number {}
-
 resource "google_compute_attached_disk" "attachdisk" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
     disk     =  google_compute_disk.testdisk[each.key].self_link
