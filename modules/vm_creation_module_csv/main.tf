@@ -1,5 +1,6 @@
 locals {
   instances = "${csvdecode(file(var.csv_input_file_name))}"
+
 }
 module "csv_output" {
   source = "../csv_output"
@@ -17,14 +18,15 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
 resource "google_compute_instance" "instancecreationcsv" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
   name          = each.value.server_name
-  machine_type  = "${lookup(each.value.machine_type, "${var.machine_type_size}")}"
+  machine_type  = "${lookup(var.machine_type_size, each.value.machine_type)}"
+  # machine_type  = each.value.machine_type
   zone          = each.value.zone
   tags = ["foo", "bar"]
   allow_stopping_for_update = true
   boot_disk {
     initialize_params {
-      image = each.value.instance_type
-      # image = "${lookup(each.value.instance_type, "${var.instance_type_size}")}"
+      # image = each.value.instance_type
+      image = "${lookup(var.instance_type_size, each.value.instance_type)}"
     }
   }
   network_interface {
