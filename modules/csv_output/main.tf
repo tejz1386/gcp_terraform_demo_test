@@ -48,10 +48,12 @@ locals {
   disk_number    = null_resource.csv_interpolation_method.*.triggers.14
   ha_enabled     = null_resource.csv_interpolation_method.*.triggers.15
   servercount   = length(local.virtualmachines)
+
+  machine_type_val  = "${lookup("${var.machine_type_size}",local.machine_type)}"
+  instance_type_val = "${lookup("${var.instance_type_size}",local.instance_type)}"
   
   disk_list        = tolist(["${local.data_disk_01}", "${local.data_disk_02}", "${local.data_disk_03}", "${local.data_disk_04}"])
-#  server_disk_size = tomap 
-# for_each = local.virtualmachines
+
     server_disk_01 = zipmap("${local.server_name}","${local.data_disk_01}")
     server_disk_02 = zipmap("${local.server_name}","${local.data_disk_02}")
     server_disk_03 = zipmap("${local.server_name}","${local.data_disk_03}")
@@ -89,10 +91,10 @@ output "server_zone" {
   value = "${local.zone}"
 }
 output "server_type" {
-  value = "${local.instance_type}"
+  value = "${local.instance_type_val}"
 }
 output "server_machine_type" {
-  value = "${local.machine_type}"
+  value = "${local.machine_type_val}"
 }
 output "server_instance_type" {
   value = "${local.instance_type}"
