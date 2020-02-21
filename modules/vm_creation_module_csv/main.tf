@@ -26,7 +26,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   boot_disk {
     initialize_params {
       # image = each.value.instance_type
-      image = "${lookup("${var.instance_type_size, each.value.instance_type}")}"
+      image = "${lookup(var.instance_type_size, each.value.instance_type)}"
     }
   }
   network_interface {
