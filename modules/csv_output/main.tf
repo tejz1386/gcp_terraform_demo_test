@@ -1,8 +1,6 @@
 module "shared_vars"{
   source = "../shared_vars"
 }
-
-variable csv_input_file_name {}
 locals {
 #  virtualmachines = "${csvdecode(file("./gcp_server_input.csv"))}"
   virtualmachines = "${csvdecode(file(var.csv_input_file_name))}"

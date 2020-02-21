@@ -36,4 +36,5 @@ module "network_creation" {
   source = "../network_creation"
   # csv_input_file_name = module.shared_vars.csv_input_filename
   csv_input_file_name = "${var.csv_input_filename}"
+  subnetwork = "${var.subnetwork}"
 }
