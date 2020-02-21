@@ -18,7 +18,7 @@ resource "google_compute_disk" "testdisk" {
       type  = "pd-ssd"
       zone  = each.value.zone
     labels = {
-      environment = module.shared_vars.env_suffix
+      environment = "development"
     }
     physical_block_size_bytes = 4096
 }
