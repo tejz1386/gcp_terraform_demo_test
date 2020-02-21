@@ -7,7 +7,7 @@ module "shared_vars"{
 
 module "csv_output" {
   source = "../csv_output"
-  csv_input_file_name = "${var.csv_input_filename}"
+  csv_input_file_name = "${var.csv_input_file_name}"
 }
 resource "google_compute_attached_disk" "attachdisk" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
