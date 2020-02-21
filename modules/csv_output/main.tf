@@ -91,10 +91,10 @@ output "server_zone" {
   value = "${local.zone}"
 }
 output "server_type" {
-  value = "${local.instance_type_val}"
+  value = "${local.instance_type}"
 }
 output "server_machine_type" {
-  value = "${local.machine_type_val}"
+  value = "${local.machine_type}"
 }
 output "server_instance_type" {
   value = "${local.instance_type}"
