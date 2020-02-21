@@ -7,6 +7,7 @@ module "vm_creation_module_csv" {
   source = "../vm_creation_module_csv"
   # csv_input_file_name = module.shared_vars.csv_input_filename
   csv_input_file_name = "${var.csv_input_file_name}"
+  subnetwork          = "${var.subnetwork}"
 }
 module "disk_creation_1" {
   source = "../disk_creation_2"
