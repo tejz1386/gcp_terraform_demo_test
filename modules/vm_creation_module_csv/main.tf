@@ -8,7 +8,7 @@ module "csv_output" {
 resource "google_compute_address" "internal_with_subnet_and_address" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
     name         = "${each.value.server_name}-dataip"
-    subnetwork   = module.shared_vars.subnetname
+    subnetwork   = var.subnetwork
     address_type = "INTERNAL"
     address      = each.value.ipaddr
     region       = each.value.location
@@ -27,7 +27,7 @@ resource "google_compute_instance" "instancecreationcsv" {
     }
   }
   network_interface {
-    subnetwork = module.shared_vars.subnetname
+    subnetwork = var.subnetwork
     network_ip = each.value.ipaddr
     alias_ip_range {
       ip_cidr_range = each.value.backup-ip
