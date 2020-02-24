@@ -66,6 +66,9 @@ output "server_disk2_consolidation" {
 output "server_disk3_consolidation" {
   value = "${local.server_disk_03}"
 }
+output "server_disk4_consolidation" {
+  value = "${local.server_disk_04}"
+}
 output "server_index" {
   value = "${local.server_index}"
 }
