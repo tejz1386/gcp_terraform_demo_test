@@ -53,6 +53,7 @@ locals {
     server_disk_01 = zipmap("${local.server_name}","${local.data_disk_01}")
     server_disk_02 = zipmap("${local.server_name}","${local.data_disk_02}")
     server_disk_03 = zipmap("${local.server_name}","${local.data_disk_03}")
+    server_disk_04 = zipmap("${local.server_name}","${local.data_disk_04}")
 
 
 }
