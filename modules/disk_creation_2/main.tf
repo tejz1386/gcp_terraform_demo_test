@@ -5,12 +5,6 @@ module "csv_output" {
   source = "../csv_output"
   csv_input_file_name = "${var.csv_input_file_name}"
 }
-resource "google_compute_attached_disk" "attachdisk" {
-  for_each      = { for inst in local.instances : inst.server_name => inst }
-    disk     =  google_compute_disk.testdisk[each.key].self_link
-    instance = each.value.server_name
-    zone = each.value.zone
-}
 resource "google_compute_disk" "testdisk" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
       name  = "${each.value.server_name}-${var.disk_number}"
@@ -21,4 +15,10 @@ resource "google_compute_disk" "testdisk" {
       environment = "development"
     }
     physical_block_size_bytes = 4096
+}
+resource "google_compute_attached_disk" "attachdisk" {
+  for_each      = { for inst in local.instances : inst.server_name => inst }
+    disk     =  google_compute_disk.testdisk[each.key].self_link
+    instance = each.value.server_name
+    zone = each.value.zone
 }
