@@ -36,9 +36,9 @@ resource "google_compute_instance" "instancecreationcsv" {
       ip_cidr_range = each.value.backup-ip
     }
   }
-  lifecycle {
-    create_before_destroy = true
-  }
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
   metadata = {
     foo = "bar"
   }
