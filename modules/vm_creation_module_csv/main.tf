@@ -37,7 +37,7 @@ resource "google_compute_instance" "instancecreationcsv" {
     }
   }
   lifecycle {
-    ignore_changes = [attached_disk]
+    create_before_destroy = true
   }
   metadata = {
     foo = "bar"
