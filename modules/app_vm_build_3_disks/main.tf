@@ -28,7 +28,7 @@ module "disk_creation_3" {
   server_size =  module.csv_output.server_disk3_consolidation
   disk_number = "disk-03"
   # csv_input_file_name = module.shared_vars.csv_input_filename
-  csv_input_file_name = "${var.csv_input_file_name}"
+  # csv_input_file_name = "${var.csv_input_file_name}"
 }
 module "network_creation" {
   source = "../network_creation"
