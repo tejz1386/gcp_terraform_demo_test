@@ -40,7 +40,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   #   create_before_destroy = true
   # }
   metadata = {
-    location = each.value.region
+    location = each.value.location
     zone     = each.value.zone
     ha_enabled = each.value.ha_enabled
   }
