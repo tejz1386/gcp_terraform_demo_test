@@ -1,10 +1,10 @@
 locals {
   instances = "${csvdecode(file(var.csv_input_file_name))}"
 }
-module "csv_output" {
-  source = "../csv_output"
-  csv_input_file_name = "${var.csv_input_file_name}"
-}
+# module "csv_output" {
+#   source = "../csv_output"
+#   csv_input_file_name = "${var.csv_input_file_name}"
+# }
 resource "google_compute_disk" "testdisk" {
   for_each      = { for inst in local.instances : inst.server_name => inst }
       name  = "${each.value.server_name}-${var.disk_number}"
