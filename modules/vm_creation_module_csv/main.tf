@@ -40,7 +40,9 @@ resource "google_compute_instance" "instancecreationcsv" {
   #   create_before_destroy = true
   # }
   metadata = {
-    foo = "bar"
+    location = each.value.region
+    zone     = each.value.zone
+    ha_enabled = each.value.ha_enabled
   }
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
