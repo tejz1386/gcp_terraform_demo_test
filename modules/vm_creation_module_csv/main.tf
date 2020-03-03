@@ -36,9 +36,9 @@ resource "google_compute_instance" "instancecreationcsv" {
       ip_cidr_range = each.value.backup-ip
     }
   }
-  # lifecycle {
-  #   ignore_changes = [attached_disk]
-  # }
+  lifecycle {
+    ignore_changes = [attached_disk]
+  }
   metadata = {
     location = each.value.location
     zone     = each.value.zone
