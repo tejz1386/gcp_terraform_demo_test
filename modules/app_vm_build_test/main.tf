@@ -20,7 +20,7 @@ module "disk_creation_2" {
 #   csv_input_file_name = "${var.csv_input_file_name}"
 }
 module "disk_creation_3" {
-  source = "../disk_creation_"
+  source = "../disk_creation_1"
   server_size =  module.csv_output.server_disk3_consolidation
   disk_number = "disk-03"
 #   csv_input_file_name = "${var.csv_input_file_name}"
