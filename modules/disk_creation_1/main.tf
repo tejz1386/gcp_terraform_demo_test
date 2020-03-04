@@ -12,6 +12,6 @@ resource "google_compute_disk" "testdisk" {
 resource "google_compute_attached_disk" "attachdisk" {
   for_each      = var.server_size
     disk     =  google_compute_disk.testdisk[each.key].self_link
-    instance = each.value.server_name
+    instance = "${each.key}"
     zone = "us-west2-a"
 }
