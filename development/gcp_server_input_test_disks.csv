@@ -1,1 +1,3 @@
 index_number,server_name,location,zone,ipaddr,backup-ip,machine_type,instance_type,os_disk,data_disk_01,data_disk_02,data_disk_03,data_disk_04,disk_number,ha_enabled
+1,gcp9999saps008,us-west2,us-west2-a,10.10.10.6,10.10.10.106,small,hana,,10,20,30,40,4,no
+2,gcp9999saps009,us-west2,us-west2-a,10.10.10.7,10.10.10.107,small,hana,,10,20,30,40,4,no
