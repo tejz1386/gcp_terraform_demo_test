@@ -44,6 +44,11 @@ resource "google_compute_instance" "instancecreationcsv" {
     zone     = each.value.zone
     ha_enabled = each.value.ha_enabled
   }
+  labels = {
+    location = each.value.location
+    zone     = each.value.zone
+    ha_enabled = each.value.ha_enabled
+  }
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
