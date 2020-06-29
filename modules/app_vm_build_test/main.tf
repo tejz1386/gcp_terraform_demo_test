@@ -8,22 +8,16 @@ module "vm_creation_module_csv" {
   subnetwork          = "${var.subnetwork}"
 }
 module "disk_creation_1" {
-  source = "../disk_creation_1"
+  source = "../disk_creation_2"
   server_size =  module.csv_output.server_disk1_consolidation
-  disk_number = "disk-01"
-#   csv_input_file_name = "${var.csv_input_file_name}"
+  disk_number = "datadisk-d"
+  disk_type   = "pd-hdd"
 }
 module "disk_creation_2" {
   source = "../disk_creation_1"
   server_size =  module.csv_output.server_disk2_consolidation
-  disk_number = "disk-02"
-#   csv_input_file_name = "${var.csv_input_file_name}"
-}
-module "disk_creation_3" {
-  source = "../disk_creation_1"
-  server_size =  module.csv_output.server_disk3_consolidation
-  disk_number = "disk-03"
-#   csv_input_file_name = "${var.csv_input_file_name}"
+  disk_number = "pagedisk-e"
+  disk_type   = "pd-hdd"
 }
 module "network_creation" {
   source = "../network_creation"
