@@ -1,6 +1,6 @@
 variable "csv_input_file_name" {}
 variable "subnetwork" {}
-variable "os_image" {}
+# variable "os_image" {}
 # variable "machine_type_size" {
 #     type = map
 # default = {
