@@ -11,5 +11,5 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
     subnetwork   = var.subnetwork
     address_type = "INTERNAL"
     address      = each.value.gcp_vm_lgl_ip
-    region       = each.value.gcp_vm_region
+    region       = each.value.gcp_region
 }
