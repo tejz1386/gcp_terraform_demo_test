@@ -11,13 +11,13 @@ module "disk_creation_1" {
   source = "../disk_creation_1"
   server_size =  module.csv_output.server_disk1_consolidation
   disk_number = "datadisk-d"
-  disk_type   = "pd-ssd"
+  # disk_type   = "pd-ssd"
 }
 module "disk_creation_1" {
   source = "../disk_creation_1"
   server_size =  module.csv_output.server_disk2_consolidation
   disk_number = "pagedisk-e"
-  disk_type   = "pd-ssd"
+  # disk_type   = "pd-ssd"
 }
 module "network_creation" {
   source = "../network_creation"
