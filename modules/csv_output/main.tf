@@ -66,57 +66,57 @@ output "server_disk2_consolidation" {
 output "server_disk3_consolidation" {
   value = "${local.server_disk_03}"
 }
-output "server_disk4_consolidation" {
-  value = "${local.server_disk_04}"
-}
-output "server_index" {
-  value = "${local.server_index}"
-}
+# output "server_disk4_consolidation" {
+#   value = "${local.server_disk_04}"
+# }
+# output "server_index" {
+#   value = "${local.server_index}"
+# }
 output "server_disk_list" {
   value = "${local.disk_list}"
 }
 output "server_output" {
-  value = "${local.server_name}"
+  value = "${local.gcp_vm_name}"
 }
 output "server_location" {
-  value = "${local.location}"
+  value = "${local.gcp_region}"
 }
 output "server_ip" {
-  value = "${local.ipaddr}"
+  value = "${local.gcp_vm_phy_ip}"
 }
 output "backup_ip" {
-  value = "${local.backup}"
+  value = "${local.gcp_vm_lgl_ip}"
 }
 output "server_zone" {
-  value = "${local.zone}"
+  value = "${local.gcp_zone}"
 }
 output "server_type" {
-  value = "${local.instance_type}"
+  value = "${local.gcp_vm_type}"
 }
 output "server_machine_type" {
-  value = "${local.machine_type}"
+  value = "${local.gcp_vm_machine_type}"
 }
 output "server_instance_type" {
-  value = "${local.instance_type}"
+  value = "${local.gcp_os_image}"
 }
-output "server_os_disk" {
-  value = "${local.os_disk}"
-}
+# output "server_os_disk" {
+#   value = "${local.os_disk}"
+# }
 output "server_disk_1" {
-  value = "${local.data_disk_01}"
+  value = "${local.gcp_vm_disk1}"
 }
 output "server_disk_2" {
-  value = "${local.data_disk_02}"
+  value = "${local.gcp_vm_disk1}"
 }
 output "server_disk_3" {
-  value = "${local.data_disk_03}"
+  value = "${local.gcp_vm_disk1}"
 }
-output "server_disk_4" {
-  value = "${local.data_disk_04}"
-}
-output "server_disk_number" {
-  value = "${local.disk_number}"
-}
+# output "server_disk_4" {
+#   value = "${local.data_disk_04}"
+# }
+# output "server_disk_number" {
+#   value = "${local.disk_number}"
+# }
 output "server_count" {
   value = "${local.servercount}"
 }

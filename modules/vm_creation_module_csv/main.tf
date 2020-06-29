@@ -39,11 +39,11 @@ resource "google_compute_instance" "instancecreationcsv" {
   labels = {
     region      = each.value.gcp_region
     logicalname = each.value.gcp_vm_logical
-    creator     = terraform
-    os          = windows2016
+    creator     = "terraform"
+    os          = "windows2016"
     server_type = each.value.gcp_vm_type
     sid         = each.value.gcp_sid
-    tier        = gcp_tier
+    tier        = ech.value.gcp_tier
   }
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
