@@ -43,7 +43,7 @@ resource "google_compute_instance" "instancecreationcsv" {
     os          = "windows2016"
     server_type = each.value.gcp_vm_type
     sid         = each.value.gcp_sid
-    tier        = ech.value.gcp_tier
+    tier        = each.value.gcp_tier
   }
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
