@@ -13,7 +13,7 @@ module "disk_creation_1" {
   disk_number = "datadisk-d"
   # disk_type   = "pd-ssd"
 }
-module "disk_creation_1" {
+module "disk_creation_2" {
   source = "../disk_creation_1"
   server_size =  module.csv_output.server_disk2_consolidation
   disk_number = "pagedisk-e"
