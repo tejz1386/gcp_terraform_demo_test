@@ -2,7 +2,7 @@ resource "google_compute_disk" "testdisk" {
   for_each     = var.server_size
       name  = "${each.key}-${var.disk_number}"
       size  = var.server_size[each.key]
-      type  = "pd-ssd"
+      type  = "pd-standard"
       zone  = "us-west2-a"
     labels = {
       environment = "development"
