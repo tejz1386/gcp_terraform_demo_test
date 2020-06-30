@@ -33,9 +33,9 @@ resource "google_compute_instance" "instancecreationcsv" {
       ip_cidr_range = each.value.gcp_vm_lgl_ip
     }
   }
-  lifecycle {
-    ignore_changes = [attached_disk]
-  }
+  # lifecycle {
+  #   ignore_changes = [attached_disk]
+  # }
   labels = {
     region      = each.value.gcp_region
     logicalname = each.value.gcp_vm_logical
@@ -47,6 +47,6 @@ resource "google_compute_instance" "instancecreationcsv" {
   }
   metadata_startup_script = "echo hi > /test.txt"
   service_account {
-    scopes = ["userinfo-email", "compute-ro", "storage-ro"]
+    scopes = ["userinfo-email", "compute-ro", "storage-rw"]
   }
 }
