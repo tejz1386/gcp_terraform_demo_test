@@ -18,7 +18,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   machine_type    = "n1-standard-1"
   zone          = each.value.gcp_zone
   tags = ["foo", "bar"]
-  allow_stopping_for_update = true
+  allow_stopping_for_update = false
   boot_disk {
     initialize_params {
       image  = "windows-2016"
@@ -33,9 +33,9 @@ resource "google_compute_instance" "instancecreationcsv" {
       ip_cidr_range = each.value.gcp_vm_lgl_ip
     }
   }
-  # lifecycle {
-  #   ignore_changes = [attached_disk]
-  # }
+  lifecycle {
+    ignore_changes = [attached_disk]
+  }
   labels = {
     region      = each.value.gcp_region
     logicalname = each.value.gcp_vm_logical
