@@ -32,6 +32,7 @@ resource "google_compute_instance" "instancecreationcsv" {
     network_ip = each.value.gcp_vm_phy_ip
     alias_ip_range {
       ip_cidr_range = each.value.gcp_vm_lgl_ip
+      subnetwork_range_name = "secondary"
     }
   }
   lifecycle {
