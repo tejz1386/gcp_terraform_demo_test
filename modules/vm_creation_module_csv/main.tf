@@ -15,6 +15,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   name          = each.value.gcp_vm_name
   # machine_type  = "${lookup(var.machine_type_size, each.value.machine_type)}"
   # machine_type  = each.value.gcp_vm_machine_type
+  description = each.value.gcp_desc
   machine_type    = "n1-standard-1"
   zone          = each.value.gcp_zone
   tags = ["foo", "bar"]
