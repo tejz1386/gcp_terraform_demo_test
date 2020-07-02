@@ -23,8 +23,8 @@ module "disk_creation_2" {
   disk_number = "pagedisk-e"
   # disk_type   = "pd-ssd"
 }
-module "network_creation" {
-  source = "../network_creation"
-  csv_input_file_name = "${var.csv_input_file_name}"
-  subnetwork = "${var.subnetwork}"
-}
+# module "network_creation" {
+#   source = "../network_creation"
+#   csv_input_file_name = "${var.csv_input_file_name}"
+#   subnetwork = "${var.subnetwork}"
+# }
