@@ -20,6 +20,8 @@ resource "google_compute_instance" "instancecreationcsv" {
   zone          = each.value.gcp_zone
   tags = ["foo", "bar"]
   allow_stopping_for_update = false
+  desired_status = each.value.gcp_vm_state
+  deletion_protection = each.value.gcp_vm_protection
   boot_disk {
     initialize_params {
       image  = "windows-2016"
