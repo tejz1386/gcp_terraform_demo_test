@@ -17,3 +17,12 @@ variable "subnetwork" {}
 #     app    ="windows-2016"
 #     }
 #   }
+
+variable "subnetwork" {
+    type = map
+default = {
+    x1q_app   ="subnet-development"
+    x1q_hana  ="subnet-production"
+    x1q_sql   ="subnet-staging"
+    }
+  }

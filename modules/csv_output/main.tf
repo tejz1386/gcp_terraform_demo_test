@@ -29,6 +29,7 @@ resource "null_resource" "csv_interpolation_method" {
     16 = "${element(split(",", element(slice(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")), 1, length(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")))), count.index)), 15)}" 
     17 = "${element(split(",", element(slice(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")), 1, length(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")))), count.index)), 16)}"
     18 = "${element(split(",", element(slice(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")), 1, length(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")))), count.index)), 17)}"
+    19 = "${element(split(",", element(slice(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")), 1, length(split("\n", lookup(data.null_data_source.csv_file.outputs, "file_data")))), count.index)), 18)}"
   }
 }
 
@@ -47,10 +48,11 @@ locals {
   gcp_vm_machine_type   = null_resource.csv_interpolation_method.*.triggers.12
   gcp_region            = null_resource.csv_interpolation_method.*.triggers.13
   gcp_zone              = null_resource.csv_interpolation_method.*.triggers.14
-  gcp_os_image           = null_resource.csv_interpolation_method.*.triggers.15
+  gcp_os_image          = null_resource.csv_interpolation_method.*.triggers.15
   gcp_vm_disk1          = null_resource.csv_interpolation_method.*.triggers.16
   gcp_vm_disk2          = null_resource.csv_interpolation_method.*.triggers.17
   gcp_vm_disk3          = null_resource.csv_interpolation_method.*.triggers.18
+  gcp_tier_app          = null_resource.csv_interpolation_method.*.triggers.19
   servercount           = length(local.virtualmachines) 
   disk_list             = tolist(["${local.gcp_vm_disk1}", "${local.gcp_vm_disk2}", "${local.gcp_vm_disk3}"])
   server_disk_01        = zipmap("${local.gcp_vm_name}","${local.gcp_vm_disk1}")
