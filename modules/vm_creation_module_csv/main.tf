@@ -31,7 +31,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   }
   network_interface {
     # subnetwork = var.subnetwork
-   subnetwork =  "${lookup(var.subnetwork, each.value.gcp_tier_app }"
+   subnetwork =  "${lookup(var.subnetwork, each.value.gcp_tier_app)}"
     network_ip = each.value.gcp_vm_phy_ip
     alias_ip_range {
       ip_cidr_range = each.value.gcp_vm_lgl_ip
