@@ -5,7 +5,7 @@ resource "google_compute_address" "internal_with_subnet_and_address" {
   for_each      = { for inst in local.instances : inst.gcp_vm_name => inst }
     name         = "${each.value.gcp_vm_name}-ip01"
     # subnetwork   = var.subnetwork
-      subnetwork   = "${lookup(var.subnetwork, each.value.gcp_tier_app)}"
+      subnetwork   = lookup(var.subnetwork, each.value.gcp_tier_app)
     address_type = "INTERNAL"
     address      = each.value.gcp_vm_phy_ip
     region       = each.value.gcp_region
