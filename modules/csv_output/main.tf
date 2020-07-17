@@ -122,4 +122,7 @@ output "server_disk_3" {
 output "server_count" {
   value = "${local.servercount}"
 }
+output "gcp_tier_app" {
+  value = "${local.gcp_tier_app}"
+}
 
