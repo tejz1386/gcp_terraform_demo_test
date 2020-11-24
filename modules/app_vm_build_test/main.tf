@@ -22,7 +22,7 @@ module "vm_creation_module_csv" {
 #   server_size =  module.csv_output_2.server_disk2_consolidation
 #   disk_number = "pagedisk-e"
 #   # disk_type   = "pd-ssd"
-}
+# }
 # module "network_creation" {
 #   source = "../network_creation"
 #   csv_input_file_name = "${var.csv_input_file_name}"
