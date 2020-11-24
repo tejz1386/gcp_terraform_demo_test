@@ -1,0 +1,3 @@
+gcp_vm_name,gcp_tier,gcp_sid,gcp_desc,gcp_vm_type,gcp_vm_logical,gcp_ilb_frontend,gcp_instance_grp,gcp_vm_phy_ip,gcp_vm_lgl_ip,gcp_ilb_ip,gcp_vm_machine_type,gcp_region,gcp_zone,gcp_os_image,gcp_vm_disk1,gcp_vm_disk2,gcp_vm_disk3,gcp_vm_state,gcp_vm_protection,gcp_tier_app
+bcp8286otd006,development-n-1,otx1d,opentext-content server admin,app,na,na,na,10.10.10.11,10.10.50.12,na,n2-highmem-4,us-west2,us-west2-a,Microsoft Windows Server 2012 R2 (64-bit),10,20,30,RUNNING,true,x1q_app
+bcp8286otd007,development-n-1,otx1d,opentext-content server front,app,na,na,na,10.10.10.13,10.10.50.14,na,n2-highmem-4,us-west2,us-west2-a,Microsoft Windows Server 2012 R2 (64-bit),10,20,30,RUNNING,true,x1q_app

@@ -1,5 +1,5 @@
 locals {
-  instances = "${csvdecode(file(var.csv_input_file_name))}"
+  instances = "${csvdecode(file(var.csv_input_file_name_linux))}"
 }
 resource "google_compute_address" "internal_with_subnet_and_address" {
   for_each      = { for inst in local.instances : inst.gcp_vm_name => inst }
@@ -25,7 +25,7 @@ resource "google_compute_instance" "instancecreationcsv" {
   deletion_protection = each.value.gcp_vm_protection
   boot_disk {
     initialize_params {
-      image  = var.os_image
+      image  = "centos-7"
       # image = var.os_image
       # image = "${lookup(var.instance_type_size, each.value.instance_type)}"
     }

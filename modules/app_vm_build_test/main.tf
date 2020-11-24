@@ -9,6 +9,7 @@ module "csv_output_2" {
 module "vm_creation_module_csv" {
   source = "../vm_creation_module_csv"
   csv_input_file_name = "${var.csv_input_file_name}"
+  os_image = "${var.os_image}"
   # subnetwork          = "${var.subnetwork}"
 }
 module "disk_creation_1" {
