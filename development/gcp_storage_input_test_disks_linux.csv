@@ -1,3 +1,4 @@
 gcp_vm_name,gcp_vm_disk1,gcp_vm_disk2,gcp_vm_disk3,gcp_vm_disk4,gcp_vm_disk5
 bcp8286otd007,16,16,16,16,16
 bcp8286otd011,21,21,21,21,21
+bcp8286otd021,17,17,17,17,17
